@@ -1,12 +1,32 @@
+#extensionに書き換えていきます
+from discord.ext import commands
 import discord
+import os
+import traceback
+from Votecog import qa
+from ActionCog import actioncommand
+from HelpCog import helpcommands
+from Admin import admin
+from bump import Bump
+from Surpport import Surpport
+import time
+bot = commands.Bot(command_prefix='*',help_command=None)
+token = os.environ['DISCORD_BOT_TOKEN']
 
-TOKEN = 'TOKEN'
 
-client = discord.client()
+#エラーを出した時の処理
+@bot.event
+async def on_command_error(ctx, error):
+    orig_error = getattr(error, "original", error)
+    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+    error_embed = discord.Embed(title='エラーが発生しました',description=str(ctx.guild.id),color=discord.Colour.red())
+    error_embed.add_field(name='エラー原因参考',value='```1.引数を指定してない\n2.botに権限がない\n3.使い方が間違っている```\n上記で解決しない場合公式サーバーまでスクショをお願いします',inline=False)
+    error_embed.add_field(name='Traceback',value=error_msg,inline=False)
+    await ctx.send(embed=error_embed)
 
-@client.event()
-async def on_ready():
-    print('ログインしたよ')
+#ぼっとが準備かんりょーした時の処理だけどいらないので破棄
 
-@client.event()
-async def on_message(message):
+    
+bot.run(token)
+
+   
