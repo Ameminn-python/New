@@ -108,10 +108,12 @@ class pm(commands.Cog):
         
         
         @commands.command()
-        async def remove(self,ctx):
+        async def remove(self,ctx,args):
             if ctx.author.id == myid:
-                if 
-                
+                id = int(args)
+                if id in self.member:
+                    self.point[id] = 0
+                    self.kill[id] = 0
         
         
         
