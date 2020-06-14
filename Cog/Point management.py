@@ -50,7 +50,7 @@ class pm(commands.Cog):
     
     @commands.command()
     async def start(self,ctx):
-        if ctx.author.id == myid:
+        if ctx.author.id == 598018755066593290:
             self.join = True
             ctx.send('クラン試験の参加を受け付けてます')
         else:
@@ -58,7 +58,7 @@ class pm(commands.Cog):
     
     @commands.command()
     async def fin(self,ctx):
-        if ctx.author.id == myid:
+        if ctx.author.id == 598018755066593290:
             self.join = false
             ctx.send('受付を終了しました')
         else:
@@ -101,7 +101,7 @@ class pm(commands.Cog):
         
         @commands.command()
         async def reset(self,ctx):
-            if ctx.author.id == myid:
+            if ctx.author.id == 598018755066593290:
                 self.kill.clear()
                 self.point.clear()
                 self.member.clear()
@@ -109,7 +109,7 @@ class pm(commands.Cog):
         
         @commands.command()
         async def remove(self,ctx,args):
-            if ctx.author.id == myid:
+            if ctx.author.id == 598018755066593290:
                 id = int(args)
                 if id in self.member:
                     self.point[id] = 0
