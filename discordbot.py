@@ -3,7 +3,7 @@ from discord.ext import commands
 import discord
 import os
 import traceback
-from Cog import Point manege
+from Cog import Point management.py
 
 bot = commands.Bot(command_prefix='/',help_command=None)
 token = os.environ['DISCORD_BOT_TOKEN']
