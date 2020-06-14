@@ -21,7 +21,8 @@ async def on_command_error(ctx, error):
 
 #ぼっとが準備かんりょーした時の処理だけどいらないので破棄
 
-    
+bot.add_cog(pm(bot))
+
 bot.run(token)
 
    
